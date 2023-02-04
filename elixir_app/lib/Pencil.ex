@@ -13,7 +13,11 @@ defmodule Pencil do
 
   """
 
-  def write(text) do
+  def write(text) when not is_binary(text) do
+    {:error, "Pencil.write only accepts strings"}
+  end
+
+  def write(text) when is_binary(text) do
     text
   end
 end
