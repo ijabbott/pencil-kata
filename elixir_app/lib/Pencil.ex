@@ -17,7 +17,7 @@ defmodule Pencil do
     {:error, "Pencil.write only accepts strings"}
   end
 
-  def write(text) when is_binary(text) do
+  def write(text) do
     {:ok, text}
   end
 end
