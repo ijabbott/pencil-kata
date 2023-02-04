@@ -14,6 +14,6 @@ defmodule Pencil do
   """
 
   def write(text) do
-    ""
+    text
   end
 end
