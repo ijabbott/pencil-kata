@@ -14,8 +14,13 @@ defmodule PencilTest do
     assert updatedPaper.text == "Hello World!"
   end
 
-  test "when given a non-string, write returns error describing proper input" do
+  test "when given a non-string as the first argument, write returns error describing proper input" do
     paper = %Paper{}
-    assert Pencil.write({:notString}, paper) == {:error, "Pencil.write only accepts strings"}
+    assert Pencil.write({:notString}, paper) == {:error, "Pencil.write accepts the following parameters: write(binaryInput, %Paper{})"}
+  end
+
+  test "when given a non-paper as the second argument, write returns error describing proper input" do
+    paper = %Paper{}
+    assert Pencil.write("Hello World!", "not paper") == {:error, "Pencil.write accepts the following parameters: write(binaryInput, %Paper{})"}
   end
 end

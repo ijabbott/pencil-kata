@@ -14,11 +14,15 @@ defmodule Pencil do
   """
 
   def write(text, paper) when not is_binary(text) do
-    {:error, "Pencil.write only accepts strings"}
+    {:error, "Pencil.write accepts the following parameters: write(binaryInput, %Paper{})"}
   end
 
-  def write(text, paper) do
+  def write(text, %Paper{} = paper) do
     paper = %{paper | text: text}
     {:ok, paper}
+  end
+
+  def write(text, _) do
+    {:error, "Pencil.write accepts the following parameters: write(binaryInput, %Paper{})"}
   end
 end
