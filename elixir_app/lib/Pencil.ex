@@ -9,7 +9,7 @@ defmodule Pencil do
   ## Examples
 
       iex> Pencil.write("Hello World!")
-      "Hello World!"
+      {:ok, "Hello World!"}
 
   """
 
@@ -18,6 +18,6 @@ defmodule Pencil do
   end
 
   def write(text) when is_binary(text) do
-    text
+    {:ok, text}
   end
 end
