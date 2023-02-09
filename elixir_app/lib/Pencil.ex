@@ -24,7 +24,7 @@ defmodule Pencil do
     {:ok, paper}
   end
 
-  def write(text, _) do
+  def write(_, _) do
     @write_error_parameters
   end
 end
