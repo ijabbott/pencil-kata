@@ -38,4 +38,11 @@ defmodule PencilTest do
     {:ok, _, updatedPaper} = Pencil.write(pencil, "World!", paper)
     assert updatedPaper.text == "Hello World!"
   end
+
+  test "when pencil writes lowercase, the point degrades" do
+    paper = %Paper{}
+    pencil = %Pencil{durability: 10}
+    {:ok, updatedPencil, _} = Pencil.write(pencil, "hello", paper)
+    assert updatedPencil.durability == 5
+  end
 end
