@@ -15,12 +15,13 @@ defmodule Pencil do
 
   @write_error_parameters {:error, "Pencil.write accepts the following parameters: write(binaryInput, %Paper{})"}
 
-  def write(text, paper) when not is_binary(text) do
+  def write(text, _) when not is_binary(text) do
     @write_error_parameters
   end
 
   def write(text, %Paper{} = paper) do
-    paper = %{paper | text: text}
+    updatedText = paper.text <> text
+    paper = %{paper | text: updatedText}
     {:ok, paper}
   end
 
